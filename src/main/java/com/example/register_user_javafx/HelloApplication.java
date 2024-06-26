@@ -18,6 +18,7 @@ public class HelloApplication extends Application {
         Image image = new Image(getClass().getResourceAsStream("/icon.png"));
         stage.getIcons().add(image);
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 

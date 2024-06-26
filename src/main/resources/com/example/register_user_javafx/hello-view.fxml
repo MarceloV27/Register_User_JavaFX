@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="435.0" prefWidth="398.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.register_user_javafx.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="435.0" prefWidth="398.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.register_user_javafx.HelloController">
    <children>
       <Label layoutX="121.0" layoutY="14.0" prefHeight="35.0" prefWidth="156.0" text="Register User ">
          <font>
@@ -43,13 +43,13 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="150.0" layoutY="59.0" prefHeight="26.0" prefWidth="206.0" />
-      <TextField layoutX="150.0" layoutY="105.0" prefHeight="26.0" prefWidth="206.0" />
-      <TextField layoutX="150.0" layoutY="151.0" prefHeight="26.0" prefWidth="206.0" />
-      <TextField layoutX="150.0" layoutY="197.0" prefHeight="26.0" prefWidth="206.0" />
-      <TextField layoutX="150.0" layoutY="243.0" prefHeight="26.0" prefWidth="206.0" />
-      <TextField layoutX="150.0" layoutY="289.0" prefHeight="26.0" prefWidth="206.0" />
-      <Button fx:id="idRegister" layoutX="61.0" layoutY="348.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="94.0" text="Register" />
-      <Button fx:id="idReset" layoutX="230.0" layoutY="348.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="94.0" text="Reset" />
+      <TextField fx:id="nameId" layoutX="150.0" layoutY="59.0" prefHeight="26.0" prefWidth="206.0" promptText="First Name" />
+      <TextField fx:id="lastNameId" layoutX="150.0" layoutY="105.0" prefHeight="26.0" prefWidth="206.0" promptText="Last Name" />
+      <TextField fx:id="emailId" layoutX="150.0" layoutY="151.0" prefHeight="26.0" prefWidth="206.0" promptText="(e.i. example@.gmail.com)" />
+      <TextField fx:id="phoneNumberId" layoutX="150.0" layoutY="197.0" prefHeight="26.0" prefWidth="206.0" promptText="(e.i. 8888888888)" />
+      <TextField fx:id="addressId" layoutX="150.0" layoutY="243.0" prefHeight="26.0" prefWidth="206.0" promptText="(e.i. example12.Ave)" />
+      <TextField fx:id="zipCodeId" layoutX="150.0" layoutY="289.0" prefHeight="26.0" prefWidth="206.0" promptText="(e.i.DR8 QWS5)" />
+      <Button fx:id="idRegister" layoutX="61.0" layoutY="348.0" mnemonicParsing="false" onAction="#buttonReset" prefHeight="35.0" prefWidth="94.0" text="Register" />
+      <Button fx:id="idReset" layoutX="230.0" layoutY="348.0" mnemonicParsing="false" onAction="#buttonReset" prefHeight="35.0" prefWidth="94.0" text="Reset" />
    </children>
 </AnchorPane>
