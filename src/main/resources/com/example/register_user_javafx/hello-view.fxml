@@ -49,7 +49,7 @@
       <TextField fx:id="phoneNumberId" layoutX="150.0" layoutY="197.0" prefHeight="26.0" prefWidth="206.0" promptText="(e.i. 8888888888)" />
       <TextField fx:id="addressId" layoutX="150.0" layoutY="243.0" prefHeight="26.0" prefWidth="206.0" promptText="(e.i. example12.Ave)" />
       <TextField fx:id="zipCodeId" layoutX="150.0" layoutY="289.0" prefHeight="26.0" prefWidth="206.0" promptText="(e.i.DR8 QWS5)" />
-      <Button fx:id="idRegister" layoutX="61.0" layoutY="348.0" mnemonicParsing="false" onAction="#buttonReset" prefHeight="35.0" prefWidth="94.0" text="Register" />
+      <Button fx:id="idRegister" layoutX="61.0" layoutY="348.0" mnemonicParsing="false" onAction="#buttonRegister" prefHeight="35.0" prefWidth="94.0" text="Register" />
       <Button fx:id="idReset" layoutX="230.0" layoutY="348.0" mnemonicParsing="false" onAction="#buttonReset" prefHeight="35.0" prefWidth="94.0" text="Reset" />
    </children>
 </AnchorPane>

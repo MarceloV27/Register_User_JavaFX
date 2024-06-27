@@ -35,45 +35,17 @@ public class HelloController {
     private TextField zipCodeId;
 
     @FXML
+    void buttonRegister(ActionEvent event) {
+
+
+    }
+
+    @FXML
     void buttonReset(ActionEvent event) {
         List<TextField> textFieldsList = Arrays.asList(addressId, emailId, lastNameId, nameId, phoneNumberId, zipCodeId);
         for(TextField textField : textFieldsList) {
             textField.clear();
         }
     }
-
-
-    // Check the TextField has String on it and put display pop message error.
-    void buttonRegister(ActionEvent event){
-        List<TextField> OnlyStrings = Arrays.asList(addressId, lastNameId, nameId);
-
-        for (TextField textField : OnlyStrings) {
-            String filteredText = textField.getText().replaceAll("\\d", "");
-            textField.setText(filteredText);
-        }
-
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
