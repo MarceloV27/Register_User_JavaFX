@@ -3,10 +3,8 @@ package com.example.register_user_javafx;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.UnaryOperator;
@@ -36,19 +34,19 @@ public class HelloController {
     void buttonRegister(ActionEvent event) {
 
         if (areFieldsEmpty()) {
-            showAlert("Invalid Input", "All fields must be filled.");
-        } else if (!isAlphabetic(nameId.getText())) {
-            showAlert("Invalid Input", "Name must contain only alphabetic characters.");
-        } else if (!isAlphabetic(lastNameId.getText())) {
-            showAlert("Invalid Input", "Name must contain only alphabetic characters.");
+            showAlert("All fields must be filled.");
+        } else if (isAlphabetic(nameId.getText())) {
+            showAlert("Name must contain only alphabetic characters.");
+        } else if (isAlphabetic(lastNameId.getText())) {
+            showAlert("Name must contain only alphabetic characters.");
         }else if (!isValidEmail(emailId.getText())) {
-            showAlert("Invalid Input", "Email format is incorrect.");
+            showAlert("Email format is incorrect.");
         } else if (!isValidPhoneNumber(phoneNumberId.getText())) {
-            showAlert("Invalid Input", "Phone number format is incorrect.");
+            showAlert("Phone number format is incorrect.");
         } else if (!isValidAddress(addressId.getText())) {
-            showAlert("Invalid Input", "Address format is incorrect.");
+            showAlert("Address format is incorrect.");
         } else if (!isValidZipCode(zipCodeId.getText())) {
-            showAlert("Invalid Input", "Zip code format is incorrect.");
+            showAlert("Zip code format is incorrect.");
         }
     }
 
@@ -76,7 +74,7 @@ public class HelloController {
     }
 
     private boolean isAlphabetic(String text) {
-        return text.matches("[a-zA-Z]+");
+        return !text.matches("[a-zA-Z]+");
     }
 
     private boolean isValidEmail(String email) {
@@ -111,9 +109,9 @@ public class HelloController {
         return textField.getText() == null || textField.getText().trim().isEmpty();
     }
 
-    private void showAlert(String title, String content) {
+    private void showAlert(String content) {
         Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle(title);
+        alert.setTitle("Invalid Input");
         alert.setHeaderText(null);
         alert.setContentText(content);
         alert.showAndWait();
