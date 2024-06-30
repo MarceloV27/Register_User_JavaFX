@@ -21,12 +21,6 @@ public class HelloController {
     private TextField emailId;
 
     @FXML
-    private Button idRegister;
-
-    @FXML
-    private Button idReset;
-
-    @FXML
     private TextField lastNameId;
 
     @FXML
