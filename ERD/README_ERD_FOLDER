@@ -1,0 +1,21 @@
+README_ERD_FOLDER
+
+In this ERD file has two different files format
+____________________________________________________________________________________
+* user_Register.jpg
+
+In this format. jpg has ERD graph.
+____________________________________________________________________________________
+* user_Register.drawio
+
+In this file you can modify the ERD graph with this link:
+https://app.diagrams.net
+
+Steps
+* Check the PATH user_Register.drawio in this project and Copy the PATH
+* Go to this link: https://app.diagrams.net
+* Choose Button [ Open Existing Diagram ]
+* Past the PATH user_Register.drawio in to "Address bar" [Next to "Search bar"] in the File Explore
+* Done
+_______________________________________________________________________________
+

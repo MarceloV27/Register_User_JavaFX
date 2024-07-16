@@ -38,7 +38,7 @@ public class HelloController {
         } else if (isAlphabetic(nameId.getText())) {
             showAlert("Name must contain only alphabetic characters.");
         } else if (isAlphabetic(lastNameId.getText())) {
-            showAlert("Name must contain only alphabetic characters.");
+            showAlert("Last Name must contain only alphabetic characters.");
         }else if (!isValidEmail(emailId.getText())) {
             showAlert("Email format is incorrect.");
         } else if (!isValidPhoneNumber(phoneNumberId.getText())) {
