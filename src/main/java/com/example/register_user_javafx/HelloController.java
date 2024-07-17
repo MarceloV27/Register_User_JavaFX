@@ -1,14 +1,14 @@
 package com.example.register_user_javafx;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TextFormatter;
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.UnaryOperator;
-import java.util.regex.Pattern;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class HelloController {
 
@@ -31,7 +31,7 @@ public class HelloController {
     private TextField zipCodeId;
 
     @FXML
-    void buttonRegister(ActionEvent event) {
+    void buttonRegister() {
 
         if (areFieldsEmpty()) {
             showAlert("All fields must be filled.");
@@ -47,31 +47,39 @@ public class HelloController {
             showAlert("Address format is incorrect.");
         } else if (!isValidZipCode(zipCodeId.getText())) {
             showAlert("Zip code format is incorrect.");
+        }else{
+            saveUserData();
         }
     }
 
     @FXML
-    void buttonReset(ActionEvent event) {
+    void buttonReset() {
         List<TextField> textFieldsList = Arrays.asList(addressId, emailId, lastNameId, nameId, phoneNumberId, zipCodeId);
         for (TextField textField : textFieldsList) {
             textField.clear();
         }
     }
 
-    private void restrictToDigits(TextField textField) {
-        Pattern validPattern = Pattern.compile("\\d*");
+private void saveUserData(){
+    String query = "INSERT INTO userRegister(userName, lastName, email, phoneNumber, address, zipCode) VALUES (?,?,?,?,?,?)";
+    String url = "jdbc:mysql://localhost:3306/user_register";
+    String userName = "root";
+    String password = "123qwe";
+    try(Connection conn = DriverManager.getConnection(url, userName, password);
+        PreparedStatement stmt = conn.prepareStatement(query)){
+        stmt.setString(1, nameId.getText());
+        stmt.setString(2, lastNameId.getText());
+        stmt.setString(3, emailId.getText());
+        stmt.setString(4, phoneNumberId.getText());
+        stmt.setString(5, addressId.getText());
+        stmt.setString(6, zipCodeId.getText());
+        stmt.executeUpdate();
+        showAlert("User registered successfully.");
 
-        UnaryOperator<TextFormatter.Change> filter = change -> {
-            String newText = change.getControlNewText();
-            if (validPattern.matcher(newText).matches()) {
-                return change;
-            }
-            return null;
-        };
-
-        TextFormatter<String> textFormatter = new TextFormatter<>(filter);
-        textField.setTextFormatter(textFormatter);
+    }catch (SQLException ex){
+        showAlert(ex.getMessage());
     }
+}
 
     private boolean isAlphabetic(String text) {
         return !text.matches("[a-zA-Z]+");
