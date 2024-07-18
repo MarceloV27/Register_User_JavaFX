@@ -17,5 +17,17 @@ Steps
 * Choose Button [ Open Existing Diagram ]
 * Past the PATH user_Register.drawio in to "Address bar" [Next to "Search bar"] in the File Explore
 * Done
+
+Or
+
+Step Plugins Intellij Ultimate:
+* Go to Pluggins
+* Seach Diagrams.net Inegration
+* Install it
+* Go to the file user_Register.drawio
+* On the down edge click diagrams.net editor
+* Done
+
+
 _______________________________________________________________________________
 
