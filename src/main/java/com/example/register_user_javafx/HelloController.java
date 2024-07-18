@@ -30,14 +30,38 @@ public class HelloController {
     @FXML
     private TextField zipCodeId;
 
+
+    /**
+     *  <h1>Method buttonRegister</h1>
+     *
+     *  <h3>Functionalities</h3>
+     *<p>
+     *   This method checks that the TextFields are not empty and ensures they have the correct format.
+     *   It uses if-else statements and the <code>isAlphabetic()</code>, <code>isValidEmail()</code>,
+     *   <code>isValidAddress()</code>, and <code>isValidZipCode()</code>, <code>areFieldsEmpty()</code>methods for validation.
+     *   If the format is incorrect, it displays an error message.
+     *   </p>
+     * Example usage:
+     *
+     *       <pre>
+     *           {@code
+     *               private boolean isAlphabetic(String text) {
+     *               return !text.matches("[a-zA-Z]+");
+     *                }
+     *           }
+     *
+     *       </pre>
+     *
+     *
+     *  <p>* Connect and Collect data User into a user's table use a Database</p>
+     */
     @FXML
     void buttonRegister() {
-
         if (areFieldsEmpty()) {
             showAlert("All fields must be filled.");
-        } else if (isAlphabetic(nameId.getText())) {
+        } else if (!isAlphabetic(nameId.getText())) {
             showAlert("Name must contain only alphabetic characters.");
-        } else if (isAlphabetic(lastNameId.getText())) {
+        } else if (!isAlphabetic(lastNameId.getText())) {
             showAlert("Last Name must contain only alphabetic characters.");
         }else if (!isValidEmail(emailId.getText())) {
             showAlert("Email format is incorrect.");
@@ -52,15 +76,55 @@ public class HelloController {
         }
     }
 
+    /**
+     * <H1>Method buttonRest</H1>
+     *
+     *<h3>Functionalities</h3>
+     *
+     * <p> Collect <code>textField variables</code> into a Array. Use Of loop to clear the textFields</p>
+     *
+     * <per>
+     *     {@code
+     *
     @FXML
-    void buttonReset() {
+    private TextField addressId;
+
+    @FXML
+    private TextField emailId;
+
+    @FXML
+    private TextField lastNameId;
+
+    @FXML
+    private TextField nameId;
+
+    @FXML
+    private TextField phoneNumberId;
+
+    @FXML
+    private TextField zipCodeId;
+     *     }
+     * </per>
+     *
+     */
+    @FXML
+    public void buttonReset() {
         List<TextField> textFieldsList = Arrays.asList(addressId, emailId, lastNameId, nameId, phoneNumberId, zipCodeId);
         for (TextField textField : textFieldsList) {
             textField.clear();
         }
     }
 
-private void saveUserData(){
+    /**
+     * <H1> Method saveUserData</H1>
+     *
+     * <h3>Functionalities</h3>
+     *
+     *<p1>Create connection between my project and the database and Insert values into User's Table and display error message.</p1>
+     *
+     */
+    private void saveUserData(){
+
     String query = "INSERT INTO userRegister(userName, lastName, email, phoneNumber, address, zipCode) VALUES (?,?,?,?,?,?)";
     String url = "jdbc:mysql://localhost:3306/user_register";
     String userName = "root";
@@ -108,6 +172,15 @@ private void saveUserData(){
         return zipCode.matches(zipCodeRegex);
     }
 
+    /**
+     * <h1>Return Methods areFieldsEmpty and isFiledEmpty</h1>
+     *
+     *<p> The return method <code>areFieldEmpty()</code> is used to check if all the text fields are empty by using <code>isFieldEmpty()</code>. </p>
+     *
+     *<p> In the Return Method <code>isFieldEmpty()</code></p>
+     *
+     * @return 'true' if the text field is empty or contains only whitespace, and 'false' otherwise
+     */
     private boolean areFieldsEmpty() {
         return isFieldEmpty(nameId) || isFieldEmpty(emailId) || isFieldEmpty(phoneNumberId) ||
                 isFieldEmpty(addressId) || isFieldEmpty(zipCodeId);
@@ -118,6 +191,7 @@ private void saveUserData(){
     }
 
     private void showAlert(String content) {
+
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Invalid Input");
         alert.setHeaderText(null);
