@@ -25,7 +25,7 @@ public class HelloController {
     private TextField nameId;
 
     @FXML
-    private TextField phoneNumberId;
+private TextField phoneNumberId;
 
     @FXML
     private TextField zipCodeId;
@@ -43,7 +43,7 @@ public class HelloController {
      *   </p>
      * Example usage:
      *
-     *       <pre>
+ *       <pre>
      *           {@code
      *               private boolean isAlphabetic(String text) {
      *               return !text.matches("[a-zA-Z]+");
@@ -59,16 +59,16 @@ public class HelloController {
     void buttonRegister() {
         if (areFieldsEmpty()) {
             showAlert("All fields must be filled.");
-        } else if (!isAlphabetic(nameId.getText())) {
+        } else if (isAlphabetic(nameId.getText())) {
             showAlert("Name must contain only alphabetic characters.");
-        } else if (!isAlphabetic(lastNameId.getText())) {
+        } else if (isAlphabetic(lastNameId.getText())) {
             showAlert("Last Name must contain only alphabetic characters.");
         }else if (!isValidEmail(emailId.getText())) {
             showAlert("Email format is incorrect.");
         } else if (!isValidPhoneNumber(phoneNumberId.getText())) {
             showAlert("Phone number format is incorrect.");
         } else if (!isValidAddress(addressId.getText())) {
-            showAlert("Address format is incorrect.");
+    showAlert("Address format is incorrect.");
         } else if (!isValidZipCode(zipCodeId.getText())) {
             showAlert("Zip code format is incorrect.");
         }else{
@@ -146,7 +146,8 @@ public class HelloController {
 }
 
     private boolean isAlphabetic(String text) {
-        return !text.matches("[a-zA-Z]+");
+        String nameRegex = "[a-zA-Z]+";
+        return !text.matches(nameRegex);
     }
 
     private boolean isValidEmail(String email) {
