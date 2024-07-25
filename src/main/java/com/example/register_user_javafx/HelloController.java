@@ -2,6 +2,7 @@ package com.example.register_user_javafx;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import java.util.Arrays;
 import java.util.List;
@@ -12,6 +13,8 @@ import java.sql.SQLException;
 
 public class HelloController {
 
+    public Button idRegister;
+    public Button idReset;
     @FXML
     private TextField addressId;
 
