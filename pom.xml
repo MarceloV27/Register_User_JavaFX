@@ -9,11 +9,19 @@
     <version>1.0-SNAPSHOT</version>
     <name>Register_User_JavaFX</name>
 
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>5.10.3</junit.version>
     </properties>
+
+<distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>GitHub Packages</name>
+      <url>https://maven.pkg.github.com/MarceloV27/Register_User_JavaFX</url>
+    </repository>
+  </distributionManagement>
+
 
     <dependencies>
 
@@ -66,8 +74,6 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-
-
     </dependencies>
 
     <build>
