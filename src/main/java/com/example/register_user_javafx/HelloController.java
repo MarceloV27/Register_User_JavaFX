@@ -130,8 +130,12 @@ private TextField phoneNumberId;
 
     String query = "INSERT INTO userRegister(userName, lastName, email, phoneNumber, address, zipCode) VALUES (?,?,?,?,?,?)";
     String url = "jdbc:mysql://localhost:3306/user_register";
-    String userName = "root";
-    String password = "REMOVED";
+    String userName = System.getenv().getOrDefault("DB_USER", "root");
+    String password = System.getenv("DB_PASSWORD");
+    if (password == null || password.isBlank()) {
+        showAlert("Missing DB_PASSWORD environment variable.");
+        return;
+    }
     try(Connection conn = DriverManager.getConnection(url, userName, password);
         PreparedStatement stmt = conn.prepareStatement(query)){
         stmt.setString(1, nameId.getText());
